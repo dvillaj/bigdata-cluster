@@ -2,7 +2,7 @@ Vagrant.require_version ">= 2.2.6"
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-	numNodes = 2
+	numNodes = 3
 	r = numNodes..1
 	(r.first).downto(r.last).each do |i|
 		config.vm.define "node-#{i}" do |node|
@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			node.vm.provision "shell" do |s|
 				s.path = "scripts/setup-centos-hosts.sh"
 				s.args = "-t #{numNodes}"
-            end
+			end
 
 			if i == 2
 				node.vm.provision "shell" do |s|
@@ -34,7 +34,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				end
             end
            
-
 =begin          
 			node.vm.provision "shell", path: "scripts/setup-java.sh"
 			node.vm.provision "shell", path: "scripts/setup-hadoop.sh"

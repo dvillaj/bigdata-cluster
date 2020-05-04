@@ -16,13 +16,12 @@ do
 		t) TOTAL_NODES=${OPTARG};;
 	esac
 done
-#echo "total nodes = $TOTAL_NODES"
+#echo "start = ${START}, total nodes = ${TOTAL_NODES}"
 
 function installSSHPass {
 	#yum -y install wget
 	#wget https://cbs.centos.org/kojifiles/packages/sshpass/1.06/8.el8/aarch64/sshpass-1.06-8.el8.aarch64.rpm
 	#rpm -ivh sshpass-1.06-8.el8.aarch64.rpm
-	#yum -y install sshpass
     yum -y install epel-release
     yum -y install sshpass 
 }
