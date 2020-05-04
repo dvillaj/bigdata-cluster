@@ -8,7 +8,7 @@ HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
 HADOOP_VERSION=hadoop-3.1.3
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
-HADOOP_MIRROR_DOWNLOAD=../resources/$HADOOP_ARCHIVE
+HADOOP_MIRROR_DOWNLOAD=https://downloads.apache.org/hadoop/common/${HADOOP_VERSION}/${HADOOP_VERSION}.tar.gz
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
 #spark
