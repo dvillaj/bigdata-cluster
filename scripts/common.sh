@@ -4,8 +4,8 @@
 JAVA_ARCHIVE=jdk-8u251-linux-x64.tar.gz
 
 #hadoop
-HADOOP_PREFIX=/usr/local/hadoop
-HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
+HADOOP_HOME=/usr/local/hadoop
+HADOOP_CONF=$HADOOP_HOME/etc/hadoop
 HADOOP_VERSION=hadoop-3.1.3
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
 HADOOP_MIRROR_DOWNLOAD=https://downloads.apache.org/hadoop/common/${HADOOP_VERSION}/${HADOOP_VERSION}.tar.gz
