@@ -227,8 +227,7 @@ export HADOOP_SECURE_DN_USER=${HADOOP_SECURE_DN_USER}
 #export HADOOP_LOG_DIR=${HADOOP_LOG_DIR}/$USER
 
 # Where log files are stored in the secure data environment.
-export HADOOP_SECURE_DN_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
-
+export HADOOP_SECURE_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
 
 
 # The directory where pid files are stored. /tmp by default.

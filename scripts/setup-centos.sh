@@ -14,6 +14,7 @@ function enablePasswordAuthentication {
     systemctl restart sshd
 }
 
+
 echo "setup centos"
 
 disableFirewall

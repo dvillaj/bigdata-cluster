@@ -48,6 +48,7 @@ function sshCopyId {
 	done
 }
 
+
 echo "setup ssh"
 installSSHPass
 createSSHKey

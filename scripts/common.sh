@@ -18,6 +18,8 @@ SPARK_MIRROR_DOWNLOAD=../resources/$SPARK_ARCHIVE
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 
+CLUSTER_RES_DIR=/vagrant/resources/cluster
+
 #ssh
 SSH_RES_DIR=/vagrant/resources/ssh
 RES_SSH_COPYID=$SSH_RES_DIR/ssh-copy-id.sh

@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             node.vm.box = "centos/8"
 			node.vm.provider "virtualbox" do |v|
 			  v.name = "node#{i}"
-			  v.customize ["modifyvm", :id, "--memory", "2048"]
+			  v.customize ["modifyvm", :id, "--memory", "3072"]
             end
             node.vm.network :private_network, ip: "10.211.55.10#{i}"
             
@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				end
             end
   
-			if i == 11
+			if i == 1
 				node.vm.provision "shell" do |s|
 					s.path = "scripts/setup-centos-ssh.sh"
 					s.args = "-s 2 -t #{numNodes}"
@@ -48,6 +48,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				s.args = "-s 3 -t #{numNodes}"
             end
 =end
+
+			if i < 3
+				node.vm.provision "shell" do |s|
+					s.path = "scripts/setup-cluster.sh"
+					s.args = "-n #{i}"
+				end
+			end
+
 		end
 	end
 end
+
+=begin
+netstat -tulnp
+=end
