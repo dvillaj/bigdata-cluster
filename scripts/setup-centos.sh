@@ -14,8 +14,13 @@ function enablePasswordAuthentication {
     systemctl restart sshd
 }
 
+function installNetStats {
+	yum -y install net-tools
+}
+
 
 echo "setup centos"
 
 disableFirewall
 enablePasswordAuthentication
+installNetStats

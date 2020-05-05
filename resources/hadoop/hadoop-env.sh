@@ -53,10 +53,6 @@
 # variable is REQUIRED on ALL platforms except OS X!
 export JAVA_HOME=/usr/local/java
 
-# The jsvc implementation to use. Jsvc is required to run secure datanodes.
-#export JSVC_HOME=${JSVC_HOME}
-
-
 # Location of Hadoop.  By default, Hadoop will attempt to determine
 # this location based upon its execution path.
 # export HADOOP_HOME=
@@ -69,7 +65,7 @@ export JAVA_HOME=/usr/local/java
 # /etc/profile.d or equivalent.  Some options (such as
 # --config) may react strangely otherwise.
 #
-export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
+# export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 
 # The maximum amount of heap to use (Java -Xmx).  If no unit
 # is provided, it will be converted to MB.  Daemons will
@@ -95,10 +91,6 @@ export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
 # For Kerberos debugging, an extended option set logs more invormation
 # export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug"
 
-# Extra Java runtime options.  Empty by default.
-export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"
-
-
 # Some parts of the shell code may do special things dependent upon
 # the operating system.  We have to set this here. See the next
 # section as to why....
@@ -109,10 +101,6 @@ export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
 # such commands.  In most cases, # this should be left empty and
 # let users supply it on the command line.
 # export HADOOP_CLIENT_OPTS=""
-
-# The following applies to multiple commands (fs, dfs, fsck, distcp etc)
-export HADOOP_CLIENT_OPTS="-Xmx512m $HADOOP_CLIENT_OPTS"
-#HADOOP_JAVA_PLATFORM_OPTS="-XX:-UsePerfData $HADOOP_JAVA_PLATFORM_OPTS"
 
 #
 # A note about classpaths.
@@ -136,17 +124,6 @@ export HADOOP_CLIENT_OPTS="-Xmx512m $HADOOP_CLIENT_OPTS"
 # This variable should ideally only be used as a short-cut,
 # interactive way for temporary additions on the command line.
 # export HADOOP_CLASSPATH="/some/cool/path/on/your/machine"
-
-
-# Extra Java CLASSPATH elements.  Automatically insert capacity-scheduler.
-for f in $HADOOP_HOME/contrib/capacity-scheduler/*.jar; do
-  if [ "$HADOOP_CLASSPATH" ]; then
-    export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$f
-  else
-    export HADOOP_CLASSPATH=$f
-  fi
-done
-
 
 # Should HADOOP_CLASSPATH be first in the official CLASSPATH?
 # export HADOOP_USER_CLASSPATH_FIRST="yes"
@@ -212,30 +189,13 @@ done
 # A string representing this instance of hadoop. $USER by default.
 # This is used in writing log and pid files, so keep that in mind!
 # Java property: hadoop.id.str
-export HADOOP_IDENT_STRING=$USER
+# export HADOOP_IDENT_STRING=$USER
 
 # How many seconds to pause after stopping a daemon
 # export HADOOP_STOP_TIMEOUT=5
 
 # Where pid files are stored.  /tmp by default.
 # export HADOOP_PID_DIR=/tmp
-
-# On secure datanodes, user to run the datanode as after dropping privileges
-export HADOOP_SECURE_DN_USER=${HADOOP_SECURE_DN_USER}
-
-# Where log files are stored.  $HADOOP_HOME/logs by default.
-#export HADOOP_LOG_DIR=${HADOOP_LOG_DIR}/$USER
-
-# Where log files are stored in the secure data environment.
-export HADOOP_SECURE_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
-
-
-# The directory where pid files are stored. /tmp by default.
-# NOTE: this should be set to a directory that can only be written to by 
-#       the user that will run the hadoop daemons.  Otherwise there is the
-#       potential for a symlink attack.
-export HADOOP_PID_DIR=${HADOOP_PID_DIR}
-export HADOOP_SECURE_DN_PID_DIR=${HADOOP_PID_DIR}
 
 # Default log4j setting for interactive commands
 # Java property: hadoop.root.logger
@@ -303,7 +263,6 @@ export HADOOP_SECURE_DN_PID_DIR=${HADOOP_PID_DIR}
 # to keep HADOOP_IDENT_STRING untouched, then uncomment this line.
 # export HADOOP_SECURE_IDENT_PRESERVE="true"
 
-
 ###
 # NameNode specific parameters
 ###
@@ -328,7 +287,7 @@ export HADOOP_SECURE_DN_PID_DIR=${HADOOP_PID_DIR}
 # export HDFS_NAMENODE_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -Xloggc:${HADOOP_LOG_DIR}/gc-rm.log-$(date +'%Y%m%d%H%M')"
 
 # this is the default:
-export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER:-INFO,RFAS} -Dhdfs.audit.logger=${HDFS_AUDIT_LOGGER:-INFO,NullAppender} $HDFS_NAMENODE_OPTS"
+# export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=INFO,RFAS"
 
 ###
 # SecondaryNameNode specific parameters
@@ -340,9 +299,6 @@ export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER:-IN
 # This is the default:
 # export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=INFO,RFAS"
 
-export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER:-INFO,RFAS} -Dhdfs.audit.logger=${HDFS_AUDIT_LOGGER:-INFO,NullAppender} $HDFS_SECONDARYNAMENODE_OPTS"
-
-
 ###
 # DataNode specific parameters
 ###
@@ -351,7 +307,7 @@ export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_L
 # and therefore may override any similar flags set in HADOOP_OPTS
 #
 # This is the default:
-export HDFS_DATANODE_OPTS="-Dhadoop.security.logger=ERROR,RFAS $HDFS_DATANODE_OPTS"
+# export HDFS_DATANODE_OPTS="-Dhadoop.security.logger=ERROR,RFAS"
 
 # On secure datanodes, user to run the datanode as after dropping privileges.
 # This **MUST** be uncommented to enable secure HDFS if using privileged ports
@@ -374,14 +330,12 @@ export HDFS_DATANODE_OPTS="-Dhadoop.security.logger=ERROR,RFAS $HDFS_DATANODE_OP
 # and therefore may override any similar flags set in HADOOP_OPTS
 #
 # export HDFS_NFS3_OPTS=""
-export HDFS_NFS3_OPTS="$HDFS_NFS3_OPTS"
 
 # Specify the JVM options to be used when starting the Hadoop portmapper.
 # These options will be appended to the options specified as HADOOP_OPTS
 # and therefore may override any similar flags set in HADOOP_OPTS
 #
 # export HDFS_PORTMAP_OPTS="-Xmx512m"
-export HDFS_PORTMAP_OPTS="-Xmx512m $HDFS_PORTMAP_OPTS"
 
 # Supplemental options for priviliged gateways
 # By default, Hadoop uses jsvc which needs to know to launch a

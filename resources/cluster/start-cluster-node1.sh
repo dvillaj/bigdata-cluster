@@ -1,4 +1,4 @@
-$HADOOP_HOME/bin/hdfs namenode -format myhadoop
+source /etc/profile.d/hadoop.sh
 
-$HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR --daemon start namenode
-$HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR --daemon start datanode
+hdfs namenode -format
+start-dfs.sh

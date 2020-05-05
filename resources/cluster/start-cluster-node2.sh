@@ -1,4 +1,8 @@
-$HADOOP_HOME/bin/yarn --config $HADOOP_CONF_DIR --daemon start resourcemanager
-$HADOOP_HOME/bin/yarn --config $HADOOP_CONF_DIR --daemon start nodemanager
-$HADOOP_HOME/bin/yarn --config $HADOOP_CONF_DIR --daemon start proxyserver
-$HADOOP_HOME/bin/mapred --config $HADOOP_CONF_DIR --daemon start historyserver
+source /etc/profile.d/hadoop.sh
+
+start-yarn.sh
+
+#yarn --config $HADOOP_CONF_DIR --daemon start resourcemanager
+#yarn --config $HADOOP_CONF_DIR --daemon start nodemanager
+yarn --config $HADOOP_CONF_DIR --daemon start proxyserver
+mapred --config $HADOOP_CONF_DIR --daemon start historyserver

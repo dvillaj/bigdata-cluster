@@ -15,10 +15,6 @@ function copyCluserUtils {
 	chmod +x /usr/bin/start-cluster
 }
 
-function installNetStats {
-	yum -y install net-tools
-}
 
-echo "setup cluster $NODE"
+echo "setup cluster node $NODE"
 copyCluserUtils
-installNetStats
