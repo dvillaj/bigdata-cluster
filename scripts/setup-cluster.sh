@@ -16,5 +16,5 @@ function copyCluserUtils {
 }
 
 
-echo "setup cluster node $NODE"
+echo "setup cluster"
 copyCluserUtils

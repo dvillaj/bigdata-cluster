@@ -58,4 +58,8 @@
   <name>mapreduce.reduce.env</name>
   <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
 </property>
+<property>
+    <name>mapreduce.jobtracker.staging.root.dir</name>
+    <value>/user</value>
+</property>
 </configuration>

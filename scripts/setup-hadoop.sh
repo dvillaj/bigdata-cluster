@@ -21,6 +21,8 @@ function setupHadoop {
 	mkdir /var/hadoop/mr-history
 	mkdir /var/hadoop/mr-history/done
 	mkdir /var/hadoop/mr-history/tmp
+
+	touch /var/hadoop/.format
 	
 	echo "copying over hadoop configuration files"
 	cp -f $HADOOP_RES_DIR/* $HADOOP_CONF
