@@ -13,8 +13,9 @@ HADOOP_RES_DIR=/vagrant/resources/hadoop
 
 #spark
 SPARK_VERSION=spark-2.4.5
-SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.7.tgz
-SPARK_MIRROR_DOWNLOAD=../resources/$SPARK_ARCHIVE
+SPARK_HADOOP_VERSION=hadoop2.7
+SPARK_ARCHIVE=$SPARK_VERSION-bin-${SPARK_HADOOP_VERSION}.tgz
+SPARK_MIRROR_DOWNLOAD=https://archive.apache.org/dist/spark/${SPARK_VERSION}/${SPARK_VERSION}-bin-${SPARK_HADOOP_VERSION}.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 

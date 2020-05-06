@@ -41,13 +41,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				s.path = "scripts/setup-hadoop-slaves.sh"
 				s.args = "-s 3 -t #{numNodes}"
 			end
-=begin	
+
 			node.vm.provision "shell", path: "scripts/setup-spark.sh"
 			node.vm.provision "shell" do |s|
 				s.path = "scripts/setup-spark-slaves.sh"
 				s.args = "-s 3 -t #{numNodes}"
             end
-=end
 
 			if i < 3
 				node.vm.provision "shell" do |s|
@@ -64,5 +63,15 @@ end
 netstat -tulnp
 
 yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar pi 16 1000
+
+
+$SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
+    --master yarn-cluster \
+    --num-executors 10 \
+    --executor-cores 2 \
+    /usr/local/spark/examples/jars/spark-examples*.jar \
+	100
+	
+$SPARK_HOME/bin/spark-shell --master spark://node1:7077
 
 =end

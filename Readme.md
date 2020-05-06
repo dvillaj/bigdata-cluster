@@ -18,3 +18,19 @@ http://node2:8088
 ## JobHistory
 
 http://node2:19888
+
+## Spark
+
+http://node1:8080
+
+
+## Cluster
+
+Append to `/etc/hosts` in the host machine:
+
+```
+10.211.55.101 node1
+10.211.55.102 node2
+10.211.55.103 node3
+10.211.55.104 node4
+```

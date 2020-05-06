@@ -8,12 +8,18 @@ fi
 if [ -e /var/hadoop/.format ]; then
 
     hdfs namenode -format
-    rm /var/hadoop/.format
 
 fi
 
 start-dfs.sh
 
-hadoop fs -mkdir /user/
-hadoop fs -mkdir /user/vagrant
-hadoop fs -chown vagrant /user/vagrant
+if [ -e /var/hadoop/.format ]; then
+
+    hadoop fs -mkdir /user/
+    hadoop fs -mkdir /user/vagrant
+    hadoop fs -chown vagrant /user/vagrant
+    rm /var/hadoop/.format
+
+fi
+
+$SPARK_HOME/sbin/start-all.sh
