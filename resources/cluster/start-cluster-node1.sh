@@ -1,24 +1,27 @@
 source /etc/profile.d/hadoop.sh
+source /etc/profile.d/spark.sh
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
 
-if [ -e /var/hadoop/.format ]; then
+if [ -e /var/hadoop/.init ]; then
 
     hdfs namenode -format
-
 fi
 
 start-dfs.sh
 
-if [ -e /var/hadoop/.format ]; then
+if [ -e /var/hadoop/.init ]; then
 
-    hadoop fs -mkdir /user/
-    hadoop fs -mkdir /user/vagrant
-    hadoop fs -chown vagrant /user/vagrant
-    rm /var/hadoop/.format
+    hdfs dfs -mkdir -p /user/vagrant
+    hdfs dfs -chown vagrant /user/vagrant
+
+    hdfs dfs -mkdir -p /user/hive/warehouse
+    hdfs dfs -chmod -R a+rw /user/hive
+
+    rm /var/hadoop/.init
 
 fi
 

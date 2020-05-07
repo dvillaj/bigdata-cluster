@@ -22,10 +22,10 @@ function setupHadoop {
 	mkdir /var/hadoop/mr-history/done
 	mkdir /var/hadoop/mr-history/tmp
 
-	touch /var/hadoop/.format
+	touch /var/hadoop/.init
 	
 	echo "copying over hadoop configuration files"
-	cp -f $HADOOP_RES_DIR/* $HADOOP_CONF
+	cp -f $HADOOP_RES_DIR/conf/* $HADOOP_CONF
 }
 
 function setupEnvVars {
