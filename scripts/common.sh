@@ -2,6 +2,7 @@
 
 #java
 JAVA_ARCHIVE=jdk-8u251-linux-x64.tar.gz
+JAVA_RES_DIR=/vagrant/resources/java
 
 #hadoop
 HADOOP_HOME=/usr/local/hadoop
@@ -26,9 +27,9 @@ HIVE_CONNECTOR_ARCHIVE=mysql-connector-java-${HIVE_CONNECTOR_ARCHIVE_VERSION}.ta
 HIVE_CONNECTOR_MIRROR_DOWNLOAD=https://dev.mysql.com/get/Downloads/Connector-J/${HIVE_CONNECTOR_ARCHIVE}
 
 #spark
-SPARK_VERSION=spark-2.4.5
+SPARK_VERSION=2.4.5
 SPARK_HADOOP_VERSION=hadoop2.7
-SPARK_ARCHIVE=$SPARK_VERSION-bin-${SPARK_HADOOP_VERSION}.tgz
+SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-${SPARK_HADOOP_VERSION}.tgz
 SPARK_MIRROR_DOWNLOAD=https://archive.apache.org/dist/spark/${SPARK_ARCHIVE}
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf

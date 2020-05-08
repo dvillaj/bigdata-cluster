@@ -43,7 +43,7 @@ sudo start-cluster
 
 ## Hadoop
 
-htpp://node1:9870
+http://node1:9870
 
 ## Yarn
 
@@ -56,3 +56,7 @@ http://node2:19888
 ## Spark
 
 http://node1:8080
+
+## Hive
+
+http://node:10002

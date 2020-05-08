@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             node.vm.box = "centos/8"
 			node.vm.provider "virtualbox" do |v|
 			  v.name = "node#{i}"
-			  v.customize ["modifyvm", :id, "--memory", "3072"]
+			  v.customize ["modifyvm", :id, "--memory", "4096"]
             end
             node.vm.network :private_network, ip: "10.211.55.10#{i}"
             
@@ -42,6 +42,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 					s.path = "scripts/setup-mysql.sh"
 					s.args = "10.211.55.10#{i}"
 				end
+
+				node.vm.provision "shell", path: "scripts/setup-python.sh"
 
             end
 		   
@@ -82,4 +84,13 @@ $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
 	
 $SPARK_HOME/bin/spark-shell --master spark://node1:7077
 
+
+http://www.mtitek.com/tutorials/bigdata/hive/install.php
+
+
+vi /etc/systemd/system/hive-metastore.service 
+sudo systemctl disable hive-metastore.service
+sudo systemctl daemon-reload
+sudo systemctl start hive-metastore.service
+sudo systemctl status hive-metastore.service
 =end
