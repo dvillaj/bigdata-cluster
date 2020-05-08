@@ -59,4 +59,4 @@ http://node1:8080
 
 ## Hive
 
-http://node:10002
+http://node2:10002/
