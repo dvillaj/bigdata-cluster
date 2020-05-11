@@ -11,7 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			  v.name = "node#{i}"
 			  v.customize ["modifyvm", :id, "--memory", "4096"]
             end
-            node.vm.network :private_network, ip: "10.211.55.10#{i}"
+			node.vm.network :private_network, ip: "10.211.55.10#{i}"
+			node.ssh.insert_key = false
             
             node.vm.hostname = "node#{i}"
             node.vm.provision "shell", path: "scripts/setup-centos.sh"
@@ -93,4 +94,8 @@ sudo systemctl disable hive-metastore.service
 sudo systemctl daemon-reload
 sudo systemctl start hive-metastore.service
 sudo systemctl status hive-metastore.service
+
+ansible -m ping -i ./resources/ansible/config/hosts all
+ansible-playbook -i ./resources/ansible/config/hosts  ./resources/ansible/playbooks/ping.yaml
+ansible-playbook -i ./resources/ansible/config/hosts  ./resources/ansible/playbooks/copy-resources.yaml
 =end

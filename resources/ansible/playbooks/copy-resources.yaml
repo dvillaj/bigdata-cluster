@@ -1,0 +1,24 @@
+---
+- name: Ping all hosts
+  hosts: all
+  become: true
+  vars:
+    base_path: "{{ playbook_dir }}/../../.."
+    hadoop_home: /usr/local/hadoop
+    hadoop_conf: "{{ hadoop_home }}/etc/hadoop"
+
+  tasks:
+
+  - name: Copy Hadoop resources
+    copy:
+      src: "{{ base_path }}/resources/hadoop/conf/{{ item }}"
+      dest: "{{ hadoop_conf }}"
+      mode: preserve
+    loop:
+      - core-site.xml
+      - hadoop-env.sh
+      - hdfs-site.xml
+      - mapred-env.sh
+      - mapred-site.xml
+      - yarn-env.sh
+      - yarn-site.xml
