@@ -30,7 +30,7 @@ HIVE_CONNECTOR_MIRROR_DOWNLOAD=https://dev.mysql.com/get/Downloads/Connector-J/$
 SPARK_VERSION=2.4.5
 SPARK_HADOOP_VERSION=hadoop2.7
 SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-${SPARK_HADOOP_VERSION}.tgz
-SPARK_MIRROR_DOWNLOAD=https://archive.apache.org/dist/spark/${SPARK_ARCHIVE}
+SPARK_MIRROR_DOWNLOAD=https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 
