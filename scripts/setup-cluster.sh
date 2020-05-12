@@ -12,7 +12,7 @@ done
 
 function copyCluserUtils {
 	cp -f "$CLUSTER_RES_DIR/start-cluster-node$NODE.sh" /usr/bin/start-cluster
-	cp -f "$CLUSTER_RES_DIR/start-cluster-node$NODE.sh" /usr/bin/stop-cluster
+	cp -f "$CLUSTER_RES_DIR/stop-cluster-node$NODE.sh" /usr/bin/stop-cluster
 	chmod +x /usr/bin/st*-cluster
 }
 
