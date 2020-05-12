@@ -12,6 +12,7 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
+
 <configuration>
 
 <!-- Site specific YARN configuration properties -->
@@ -21,6 +22,12 @@
   <name>yarn.nodemanager.aux-services</name>
   <value>mapreduce_shuffle</value>
  </property>
+
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+
  <!-- enable log aggregation, this is false by default -->
  <property>
   <name>yarn.log-aggregation-enable</name>

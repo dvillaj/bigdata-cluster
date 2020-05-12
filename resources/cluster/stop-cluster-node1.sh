@@ -7,6 +7,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+$SPARK_HOME/sbin/stop-all.sh
 
 stop-dfs.sh
-$SPARK_HOME/sbin/stop-all.sh

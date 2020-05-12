@@ -35,6 +35,7 @@
 # Default is the same as HADOOP_HEAPSIZE_MAX.
 export HADOOP_JOB_HISTORYSERVER_HEAPSIZE=1000
 
+
 # Specify the JVM options to be used when starting the HistoryServer.
 # These options will be appended to the options specified as HADOOP_OPTS
 # and therefore may override any similar flags set in HADOOP_OPTS

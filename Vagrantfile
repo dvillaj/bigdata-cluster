@@ -73,7 +73,7 @@ end
 =begin
 netstat -tulnp
 
-yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar pi 16 1000
+yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar pi 16 1000
 
 
 $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
@@ -98,4 +98,8 @@ sudo systemctl status hive-metastore.service
 ansible -m ping -i ./resources/ansible/config/hosts all
 ansible-playbook -i ./resources/ansible/config/hosts  ./resources/ansible/playbooks/ping.yaml
 ansible-playbook -i ./resources/ansible/config/hosts  ./resources/ansible/playbooks/copy-resources.yaml
+
+
+https://github.com/sdwangntu/hadoop-cluster
+https://hadoop.apache.org/docs/r3.2.1/hadoop-project-dist/hadoop-common/ClusterSetup.html
 =end
