@@ -7,7 +7,7 @@ JAVA_RES_DIR=/vagrant/resources/java
 #hadoop
 HADOOP_HOME=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_HOME/etc/hadoop
-HADOOP_VERSION=hadoop-3.1.3
+HADOOP_VERSION=hadoop-3.2.1
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
 HADOOP_MIRROR_DOWNLOAD=https://downloads.apache.org/hadoop/common/${HADOOP_VERSION}/${HADOOP_ARCHIVE}
 HADOOP_RES_DIR=/vagrant/resources/hadoop

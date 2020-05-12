@@ -17,7 +17,35 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
- <!-- without this property, mapreduce will not run as a yarn -->
+
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
+    </property>
+    <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
+    </property>
+
+    <property>
+      <name>mapreduce.jobhistory.intermediate-done-dir</name>
+      <value>/var/hadoop/mr-history/tmp</value>
+    </property>
+
+    <property>
+      <name>mapreduce.jobhistory.done-dir</name>
+      <value>/var/hadoop/mr-history/done</value>
+    </property>
+
+ <!--
 <property>
   <name>mapreduce.map.memory.mb</name>
   <value>3048</value>
@@ -34,32 +62,10 @@
   <name>mapreduce.reduce.java.opts</name>
   <value>-Xmx1572m</value>
  </property>
- <property>
-  <name>mapreduce.framework.name</name>
-  <value>yarn</value>
- </property>
- <property>
-  <name>mapreduce.jobhistory.intermediate-done-dir</name>
-  <value>/var/hadoop/mr-history/tmp</value>
- </property>
- <property>
-  <name>mapreduce.jobhistory.done-dir</name>
-  <value>/var/hadoop/mr-history/done</value>
- </property>
- <property>
-  <name>yarn.app.mapreduce.am.env</name>
-  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
-</property>
-<property>
-  <name>mapreduce.map.env</name>
-  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
-</property>
-<property>
-  <name>mapreduce.reduce.env</name>
-  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
-</property>
+
 <property>
     <name>mapreduce.jobtracker.staging.root.dir</name>
     <value>/user</value>
 </property>
+-->
 </configuration>
