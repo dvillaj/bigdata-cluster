@@ -19,7 +19,7 @@ function setupSlaves {
 	do 
 		entry="node${i}"
 		echo "adding ${entry}"
-		echo "${entry}" >> $HADOOP_CONF/workers
+		echo "${entry}" >> $HADOOP_CONF/slaves
 	done
 }
 

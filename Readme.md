@@ -45,7 +45,7 @@ sudo start-cluster
 
 ## Hadoop
 
-http://node1:9870
+http://node1:50070
 
 ## Yarn
 

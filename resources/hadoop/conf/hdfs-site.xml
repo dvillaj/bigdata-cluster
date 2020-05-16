@@ -25,12 +25,18 @@
   <name>dfs.datanode.data.dir</name>
   <value>file:///var/hadoop/hadoop-datanode</value>
  </property>
+ <!-- enable webhdfs -->
  <property>
-  <name>dfs.replication</name>
-  <value>2</value>
+  <name>dfs.webhdfs.enabled</name>
+  <value>true</value>
+ </property>
+ <!-- disable permissions; only for development, of course -->
+ <property>
+  <name>dfs.permissions.enabled</name>
+  <value>false</value>
  </property>
  <property>
-    <name>dfs.webhdfs.enabled</name>
-    <value>true</value>
-</property>
+  <name>dfs.namenode.handler.count</name>
+  <value>25</value>
+ </property>
 </configuration>

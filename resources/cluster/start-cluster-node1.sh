@@ -9,10 +9,11 @@ fi
 
 if [ -e /var/hadoop/.init ]; then
 
-    hdfs namenode -format
+    $HADOOP_PREFIX/bin/hdfs namenode -format myhadoop
 fi
 
-start-dfs.sh
+$HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
+$HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
 
 if [ -e /var/hadoop/.init ]; then
 

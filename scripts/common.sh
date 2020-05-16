@@ -7,15 +7,15 @@ JAVA_RES_DIR=/vagrant/resources/java
 #hadoop
 HADOOP_HOME=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_HOME/etc/hadoop
-HADOOP_VERSION=hadoop-3.2.1
+HADOOP_VERSION=hadoop-2.6.5
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
-HADOOP_MIRROR_DOWNLOAD=https://downloads.apache.org/hadoop/common/${HADOOP_VERSION}/${HADOOP_ARCHIVE}
+HADOOP_MIRROR_DOWNLOAD=https://archive.apache.org/dist/hadoop/core/${HADOOP_VERSION}/${HADOOP_ARCHIVE}
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
 #hive
 MYSQL_ROOT_PASSWD="UvwKXqnrfn27CNVz"
 MYSQL_HIVE_PASSWD="3MX6fDLN2AQm23bD"
-HIVE_VERSION=3.1.2
+HIVE_VERSION=2.3.7
 HIVE_ARCHIVE=apache-hive-${HIVE_VERSION}-bin.tar.gz
 HIVE_MIRROR_DOWNLOAD=https://downloads.apache.org/hive/hive-${HIVE_VERSION}/${HIVE_ARCHIVE}
 HIVE_RES_DIR=/vagrant/resources/hive
@@ -28,7 +28,7 @@ HIVE_CONNECTOR_MIRROR_DOWNLOAD=https://dev.mysql.com/get/Downloads/Connector-J/$
 
 #spark
 SPARK_VERSION=2.4.5
-SPARK_HADOOP_VERSION=hadoop2.7
+SPARK_HADOOP_VERSION=hadoop2.6
 SPARK_ARCHIVE=spark-${SPARK_VERSION}-bin-${SPARK_HADOOP_VERSION}.tgz
 SPARK_MIRROR_DOWNLOAD=https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPARK_ARCHIVE}
 SPARK_RES_DIR=/vagrant/resources/spark

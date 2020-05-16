@@ -54,4 +54,4 @@ installHive
 setupHive
 setupEnvVars
 mysqlJavaConnector
-replaceGuava
+#replaceGuava

@@ -73,7 +73,7 @@ end
 =begin
 netstat -tulnp
 
-yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar pi 16 1000
+yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.5.jar pi 2 100
 
 
 $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \

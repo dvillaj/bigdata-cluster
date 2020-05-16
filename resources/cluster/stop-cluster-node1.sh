@@ -9,4 +9,5 @@ fi
 
 $SPARK_HOME/sbin/stop-all.sh
 
-stop-dfs.sh
+$HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs stop datanode
+$HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs stop namenode
